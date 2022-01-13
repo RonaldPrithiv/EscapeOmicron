@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private float dirX = 0f;
     [SerializeField] private float jumpHeight = 10.0f;
     [SerializeField] private int jumps = 0;
-    [SerializeField] private float playerSpeed = 7.0f;
+    [SerializeField] private float playerSpeed = 10.0f;
 
     private enum AnimationState { idle, running, jumping, falling }
 
