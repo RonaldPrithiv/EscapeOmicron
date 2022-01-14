@@ -22,6 +22,7 @@ public class AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(i<1)
         if(patrol&&playerNotFound)
         logicNpc();
     }

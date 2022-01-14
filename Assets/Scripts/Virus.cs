@@ -18,6 +18,7 @@ public class Virus : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        
     }
 
     // Update is called once per frame
