@@ -327,6 +327,7 @@
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/ItemCollector.cs"
 "Assets/Scripts/MainMenuScript.cs"
+"Assets/Scripts/Parallax.cs"
 "Assets/Scripts/PlayerActions.cs"
 "Assets/Scripts/PlayerLife.cs"
 "Assets/Scripts/PlayerMovement.cs"
