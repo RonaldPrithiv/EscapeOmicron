@@ -7,6 +7,7 @@ public class AI : MonoBehaviour
     public Transform[] targets;
     public GameObject vision,GM;
     public float speed = 1;
+    private bool switchFlip=false;
     public int i=0,j=0;
    public  bool playerNotFound,patrol=false;
     // Start is called before the first frame update
@@ -31,9 +32,9 @@ public class AI : MonoBehaviour
         {
             playerNotFound = false;
             Debug.LogWarning(playerNotFound);
-            transform.LookAt(other.gameObject.transform);
-            GM.GetComponent<GameManager>().caught = true;
 
+            //GM.GetComponent<GameManager>().caught = true;
+            print("isolate");
         }
     }
 
@@ -42,15 +43,34 @@ public class AI : MonoBehaviour
         float step = speed * Time.deltaTime;
         if(j<i)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targets[j].position, step);     
+            transform.position = Vector2.MoveTowards(transform.position, targets[j].position, step);     
         }        
 
-        if (Vector3.Distance(transform.position, targets[j].position) < 2)
+        if (Vector2.Distance(transform.position, targets[j].position) < 2)
         {
-            j++;            
+            
+            Vector3 dir = targets[j].transform.position - transform.position;
+
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            
+            gameObject.GetComponentInChildren<SpriteRenderer>().flipY=switchFlip;
+
+            j++;
+            
+             if(j%2==0)
+             switchFlip=true;
+             else
+             switchFlip = false;
+
+
+
+
+
         }
         if (j == i)
             j = 0;
-        transform.LookAt(targets[j].position);
+        
     }
 }
