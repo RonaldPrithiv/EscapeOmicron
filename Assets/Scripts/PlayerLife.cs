@@ -9,6 +9,7 @@ public class PlayerLife : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private Transform player;
+    public Canvas go;
     private int masks = 0;
     [SerializeField] private Text maskCount;
     [SerializeField] private AudioSource maskCollectSound;
@@ -28,6 +29,7 @@ public class PlayerLife : MonoBehaviour
         if (player.transform.position.y < -10.0f)
         {
             enabled = false;
+            
             Death();
         }
     }

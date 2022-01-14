@@ -22,9 +22,11 @@ public class AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(i<1)
-        if(patrol&&playerNotFound)
-        logicNpc();
+        if (i != 0)
+        {
+            if (patrol && playerNotFound)
+                logicNpc();
+        }
     }
 
     private void OnTriggerEnter(Collider other)

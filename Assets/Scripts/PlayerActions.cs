@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerActions : MonoBehaviour
 {
     public GameObject attackUI,closeNPC;
-    private bool canAttack=false;
+    public bool canAttack=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,27 +23,27 @@ public class PlayerActions : MonoBehaviour
 
     void Attack()
     {
-        attackUI.GetComponent<MeshRenderer>().enabled = false;
+        attackUI.GetComponent<SpriteRenderer>().enabled = false;
         canAttack = false;
         Destroy(closeNPC);
     }
 
    
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Virus"))
+        if (other.gameObject.CompareTag("Virus_Back"))
         {
             closeNPC = other.gameObject.transform.parent.gameObject;
-           attackUI.GetComponent<MeshRenderer>().enabled = true;
+           attackUI.GetComponent<SpriteRenderer>().enabled = true;
             canAttack = true;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
-         if (other.gameObject.CompareTag("Virus"))
+         if (other.gameObject.CompareTag("Virus_Back"))
         {
-            attackUI.GetComponent<MeshRenderer>().enabled = false;
+            attackUI.GetComponent<SpriteRenderer>().enabled = false;
             canAttack = false;
         }
     }
