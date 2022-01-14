@@ -9,8 +9,8 @@ public class PlayerLife : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private Transform player;
-    public Canvas go;
     private int masks = 0;
+    public int tot=0;
     [SerializeField] private Text maskCount;
     [SerializeField] private AudioSource maskCollectSound;
     [SerializeField] private AudioSource deathSound;
@@ -21,6 +21,7 @@ public class PlayerLife : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         player = GetComponent<Transform>();
+       
     }
 
     // Update is called once per frame
@@ -67,11 +68,11 @@ public class PlayerLife : MonoBehaviour
 
     private void MaskCountDisplay()
     {
-        maskCount.text = "Mask: " + masks;
+        maskCount.text = "Mask: " + masks +"/"+tot;
     }
 
     private void Death()
-    {
+    {        
         deathSound.Play();
         rb.bodyType = RigidbodyType2D.Static;
         Debug.Log("Before Animation");
@@ -81,6 +82,7 @@ public class PlayerLife : MonoBehaviour
 
     private void RestartLevel()
     {
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
