@@ -6,7 +6,7 @@ public class AI : MonoBehaviour
 {
     public Transform[] targets;
     public GameObject vision,GM;
-    public float speed = 1;
+    public float speed = 5;
     private bool switchFlip=false;
     public int i=0,j=0;
    public  bool playerNotFound,patrol=false;

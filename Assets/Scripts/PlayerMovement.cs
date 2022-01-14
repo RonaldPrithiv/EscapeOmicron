@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpHeight = 10.0f;
     [SerializeField] private int jumps = 0;
     [SerializeField] private float playerSpeed = 10.0f;
+    [SerializeField] private AudioSource jumpingSound;
 
     private enum AnimationState { idle, running, jumping, falling }
 
@@ -33,11 +34,14 @@ public class PlayerMovement : MonoBehaviour
         
          dirX = Input.GetAxisRaw("Horizontal");
          rb.velocity = new Vector2(dirX * playerSpeed, rb.velocity.y);
+         
+    
         
         
         //Jump
         if (Input.GetButtonDown("Jump") && jumps < 1)
         {
+            jumpingSound.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
             jumps++;
         }

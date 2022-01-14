@@ -11,6 +11,8 @@ public class PlayerLife : MonoBehaviour
     private Transform player;
     private int masks = 0;
     [SerializeField] private Text maskCount;
+    [SerializeField] private AudioSource maskCollectSound;
+    [SerializeField] private AudioSource deathSound;
 
     // Start is called before the first frame update
     void Start()
@@ -34,10 +36,10 @@ public class PlayerLife : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Mask"))
         {
+            maskCollectSound.Play();
             Destroy(collision.gameObject);
             masks++;
             MaskCountDisplay();
-
         }
 
         if (collision.gameObject.CompareTag("Virus"))
@@ -53,6 +55,12 @@ public class PlayerLife : MonoBehaviour
             }
 
         }
+
+        if (collision.gameObject.CompareTag("Trap"))
+        {
+            Debug.Log("Spikes");
+            Death();
+        }
     }
 
     private void MaskCountDisplay()
@@ -62,6 +70,7 @@ public class PlayerLife : MonoBehaviour
 
     private void Death()
     {
+        deathSound.Play();
         rb.bodyType = RigidbodyType2D.Static;
         Debug.Log("Before Animation");
         anim.SetTrigger("death");

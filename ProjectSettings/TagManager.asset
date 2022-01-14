@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Mask
+  - Ground
+  - Virus
+  - GM
+  - NPC
+  - Trap
   layers:
   - Default
   - TransparentFX

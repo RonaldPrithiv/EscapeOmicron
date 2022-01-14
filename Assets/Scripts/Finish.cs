@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Finish : MonoBehaviour
 {
+    [SerializeField] private AudioSource finishSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,8 @@ public class Finish : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            Invoke("FinishLevel", 2f);
+            finishSound.Play();
+            Invoke("FinishLevel", 1f);
         }
     }
 

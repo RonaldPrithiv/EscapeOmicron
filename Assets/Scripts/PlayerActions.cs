@@ -31,7 +31,7 @@ public class PlayerActions : MonoBehaviour
    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("NPC"))
+        if (other.gameObject.CompareTag("Virus"))
         {
             closeNPC = other.gameObject.transform.parent.gameObject;
            attackUI.GetComponent<MeshRenderer>().enabled = true;
@@ -41,7 +41,7 @@ public class PlayerActions : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-         if (other.gameObject.CompareTag("NPC"))
+         if (other.gameObject.CompareTag("Virus"))
         {
             attackUI.GetComponent<MeshRenderer>().enabled = false;
             canAttack = false;
