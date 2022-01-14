@@ -60,6 +60,10 @@ sysinfo.txt
 *.aab
 *.unitypackage
 *.app
+<<<<<<< Updated upstream
+=======
+*.bc
+>>>>>>> Stashed changes
 
 # Crashlytics generated file
 crashlytics-build.properties

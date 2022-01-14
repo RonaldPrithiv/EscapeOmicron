@@ -13573,6 +13573,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2921664698195602611, guid: 7812d938274329342834f46101b6c7bb, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2921664698195602612, guid: 7812d938274329342834f46101b6c7bb, type: 3}
       propertyPath: jumpingSound
       value: 
