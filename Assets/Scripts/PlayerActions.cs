@@ -5,10 +5,7 @@ using UnityEngine;
 public class PlayerActions : MonoBehaviour
 {
     public GameObject attackUI,closeNPC;
-<<<<<<< Updated upstream
-=======
     private Animator anim;
->>>>>>> Stashed changes
     public bool canAttack=false;
     // Start is called before the first frame update
     void Start()
@@ -28,10 +25,7 @@ public class PlayerActions : MonoBehaviour
     void Attack()
     {
         attackUI.GetComponent<SpriteRenderer>().enabled = false;
-<<<<<<< Updated upstream
-=======
         anim.SetTrigger("attack");
->>>>>>> Stashed changes
         canAttack = false;
         Destroy(closeNPC);
     }
