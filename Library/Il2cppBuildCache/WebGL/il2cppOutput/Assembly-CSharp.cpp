@@ -64,6 +64,8 @@ struct Vector3U5BU5D_t5FB88EAA33E46838BDC2ABDAEA3E8727491CB9E4;
 struct AI_t4A4B38FAB6D716C943E2B4CDA9933AF2FC493B8F;
 // UnityEngine.Animator
 struct Animator_t9DD1D43680A61D65A3C98C6EFF559709DC9CE149;
+// UnityEngine.Audio.AudioMixer
+struct AudioMixer_t6F1DE6A2F2CF367B61A125CA0F247E66168AE2B5;
 // UnityEngine.AudioSource
 struct AudioSource_tC4BF65AF8CDCAA63724BB3CA59A7A29249269E6B;
 // UnityEngine.Behaviour
@@ -124,6 +126,8 @@ struct RectTransform_t8A6A306FB29A6C8C22010CF9040E319753571072;
 struct Renderer_t58147AB5B00224FE1460FD47542DC0DA7EC9378C;
 // UnityEngine.Rigidbody2D
 struct Rigidbody2D_tD23204FEE9CB4A36737043B97FD409DE05D5DCE5;
+// SetVol
+struct SetVol_t3AECF1A3C24FC498A08F0DB6494FF394C90F178B;
 // UnityEngine.SpriteRenderer
 struct SpriteRenderer_t3F35AD5498243C170B46F5FFDB582AAEF78615EF;
 // UnityEngine.StateMachineBehaviour
@@ -167,6 +171,7 @@ IL2CPP_EXTERN_C String_t* _stringLiteral3BF8F027C03570089EAF3336E240A035813D81C6
 IL2CPP_EXTERN_C String_t* _stringLiteral48440F2C99595744861CD260693483EE7734BE1A;
 IL2CPP_EXTERN_C String_t* _stringLiteral4D051A1C6B5D7B20CF5BE518E0307D11548295E8;
 IL2CPP_EXTERN_C String_t* _stringLiteral5DCCC66796F6179E640C0302C4C0B42F28DDD655;
+IL2CPP_EXTERN_C String_t* _stringLiteral5F96C71814E73292F536FF7D183927FD2296E4EC;
 IL2CPP_EXTERN_C String_t* _stringLiteral70253F929BCE7F81DF1A5A1C0900BED744E86C9C;
 IL2CPP_EXTERN_C String_t* _stringLiteral7F2AEB3CC86C2B7B8350D491F0DC50CE667264E0;
 IL2CPP_EXTERN_C String_t* _stringLiteral7F8C014BD4810CC276D0F9F81A1E759C7B098B1E;
@@ -1218,6 +1223,15 @@ public:
 };
 
 
+// UnityEngine.Audio.AudioMixer
+struct  AudioMixer_t6F1DE6A2F2CF367B61A125CA0F247E66168AE2B5  : public Object_tF2F3778131EFF286AF62B7B013A170F95A91571A
+{
+public:
+
+public:
+};
+
+
 // UnityEngine.Component
 struct  Component_t62FBC8D2420DA4BE9037AFE430740F6B3EECA684  : public Object_tF2F3778131EFF286AF62B7B013A170F95A91571A
 {
@@ -1967,6 +1981,25 @@ public:
 	{
 		___jumpingSound_13 = value;
 		Il2CppCodeGenWriteBarrier((void**)(&___jumpingSound_13), (void*)value);
+	}
+};
+
+
+// SetVol
+struct  SetVol_t3AECF1A3C24FC498A08F0DB6494FF394C90F178B  : public MonoBehaviour_t37A501200D970A8257124B0EAE00A0FF3DDC354A
+{
+public:
+	// UnityEngine.Audio.AudioMixer SetVol::mixer
+	AudioMixer_t6F1DE6A2F2CF367B61A125CA0F247E66168AE2B5 * ___mixer_4;
+
+public:
+	inline static int32_t get_offset_of_mixer_4() { return static_cast<int32_t>(offsetof(SetVol_t3AECF1A3C24FC498A08F0DB6494FF394C90F178B, ___mixer_4)); }
+	inline AudioMixer_t6F1DE6A2F2CF367B61A125CA0F247E66168AE2B5 * get_mixer_4() const { return ___mixer_4; }
+	inline AudioMixer_t6F1DE6A2F2CF367B61A125CA0F247E66168AE2B5 ** get_address_of_mixer_4() { return &___mixer_4; }
+	inline void set_mixer_4(AudioMixer_t6F1DE6A2F2CF367B61A125CA0F247E66168AE2B5 * value)
+	{
+		___mixer_4 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___mixer_4), (void*)value);
 	}
 };
 
@@ -2731,6 +2764,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t LayerMask_op_Implicit_mD89E9970822613
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RaycastHit2D_t210878DAEBC96C1F69DF9883C454758724A106A4  Physics2D_BoxCast_m6550719F8AEEECBEFA1F9BC82F9D8A71DDA14359 (Vector2_tBB32F2736AEC229A7BFBCE18197EC0F6AC7EC2D9  ___origin0, Vector2_tBB32F2736AEC229A7BFBCE18197EC0F6AC7EC2D9  ___size1, float ___angle2, Vector2_tBB32F2736AEC229A7BFBCE18197EC0F6AC7EC2D9  ___direction3, float ___distance4, int32_t ___layerMask5, const RuntimeMethod* method);
 // System.Boolean UnityEngine.RaycastHit2D::op_Implicit(UnityEngine.RaycastHit2D)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool RaycastHit2D_op_Implicit_m003A4C312DF408EA399F9F6C44BB5DD9D0C75217 (RaycastHit2D_t210878DAEBC96C1F69DF9883C454758724A106A4  ___hit0, const RuntimeMethod* method);
+// System.Boolean UnityEngine.Audio.AudioMixer::SetFloat(System.String,System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool AudioMixer_SetFloat_m305579F01374620674AF66DA63DDD4BDBC9089CE (AudioMixer_t6F1DE6A2F2CF367B61A125CA0F247E66168AE2B5 * __this, String_t* ___name0, float ___value1, const RuntimeMethod* method);
 // UnityEngine.RaycastHit2D UnityEngine.Physics2D::Raycast(UnityEngine.Vector2,UnityEngine.Vector2,System.Single)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RaycastHit2D_t210878DAEBC96C1F69DF9883C454758724A106A4  Physics2D_Raycast_m684AD52FAD1E3BF5AE53F8E48AF92202114053C2 (Vector2_tBB32F2736AEC229A7BFBCE18197EC0F6AC7EC2D9  ___origin0, Vector2_tBB32F2736AEC229A7BFBCE18197EC0F6AC7EC2D9  ___direction1, float ___distance2, const RuntimeMethod* method);
 // UnityEngine.Collider2D UnityEngine.RaycastHit2D::get_collider()
@@ -3430,6 +3465,23 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_Restart_m1E9741B5443E1FF65B0
 		String_t* L_1;
 		L_1 = Scene_get_name_m38F195D7CA6417FED310C23E4D8E86150C7835B8((Scene_t5495AD2FDC587DB2E94D9BDE2B85868BFB9A92EE *)(&V_0), /*hidden argument*/NULL);
 		SceneManager_LoadScene_m7DAF30213E99396ECBDB1BD40CC34CCF36902092(L_1, /*hidden argument*/NULL);
+		// }
+		return;
+	}
+}
+// System.Void GameManager::MainMenu()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_MainMenu_m188803218F4B8822AEEDD28B51778F876DF688E9 (GameManager_t9013B33302D2B40A51D0E8059DEE0DC180218AA1 * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SceneManager_tEC9D10ECC0377F8AE5AEEB5A789FFD24364440FA_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// SceneManager.LoadScene(0);
+		IL2CPP_RUNTIME_CLASS_INIT(SceneManager_tEC9D10ECC0377F8AE5AEEB5A789FFD24364440FA_il2cpp_TypeInfo_var);
+		SceneManager_LoadScene_m5550E6368A6D0E37DACEDA3C5E4BA331836BC3C5(0, /*hidden argument*/NULL);
 		// }
 		return;
 	}
@@ -4401,6 +4453,43 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlayerMovement__ctor_mBF9F632DD9929DD6FF
 		__this->set_jumpHeight_10((10.0f));
 		// [SerializeField] private float playerSpeed = 10.0f;
 		__this->set_playerSpeed_12((10.0f));
+		MonoBehaviour__ctor_mC0995D847F6A95B1A553652636C38A2AA8B13BED(__this, /*hidden argument*/NULL);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void SetVol::SetLevel(System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SetVol_SetLevel_mC0C5659C1CCAEF0DC0FCDE7B3AD9340B8821C7D3 (SetVol_t3AECF1A3C24FC498A08F0DB6494FF394C90F178B * __this, float ___sliderValue0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral5F96C71814E73292F536FF7D183927FD2296E4EC);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// mixer.SetFloat("MusicVol", Mathf.Log10(sliderValue) * 20);
+		AudioMixer_t6F1DE6A2F2CF367B61A125CA0F247E66168AE2B5 * L_0 = __this->get_mixer_4();
+		float L_1 = ___sliderValue0;
+		float L_2;
+		L_2 = log10f(L_1);
+		bool L_3;
+		L_3 = AudioMixer_SetFloat_m305579F01374620674AF66DA63DDD4BDBC9089CE(L_0, _stringLiteral5F96C71814E73292F536FF7D183927FD2296E4EC, ((float)il2cpp_codegen_multiply((float)L_2, (float)(20.0f))), /*hidden argument*/NULL);
+		// }
+		return;
+	}
+}
+// System.Void SetVol::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SetVol__ctor_m32238F1383C03D50E5F30EDE6F3BFC08958BA4C9 (SetVol_t3AECF1A3C24FC498A08F0DB6494FF394C90F178B * __this, const RuntimeMethod* method)
+{
+	{
 		MonoBehaviour__ctor_mC0995D847F6A95B1A553652636C38A2AA8B13BED(__this, /*hidden argument*/NULL);
 		return;
 	}
