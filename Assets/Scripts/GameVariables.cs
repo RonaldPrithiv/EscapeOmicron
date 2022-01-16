@@ -7,7 +7,8 @@ public class GameVariables : MonoBehaviour
     public static GameVariables instance;
 
     public Vector2 checkpointPos;
-
+    public int masks = 0;
+    public bool checkpointReached = false;
     
 
     void Awake() 
@@ -21,16 +22,5 @@ public class GameVariables : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

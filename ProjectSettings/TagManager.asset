@@ -14,6 +14,8 @@ TagManager:
   - trigger
   - Vaccine
   - GV
+  - Checkpoint
+  - Dialogue
   layers:
   - Default
   - TransparentFX

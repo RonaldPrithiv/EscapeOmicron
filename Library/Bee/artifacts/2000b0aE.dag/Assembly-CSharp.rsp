@@ -323,6 +323,7 @@
 "Assets/Scripts/CameraController.cs"
 "Assets/Scripts/CameraCtrl.cs"
 "Assets/Scripts/Continue.cs"
+"Assets/Scripts/DialogueManager.cs"
 "Assets/Scripts/Finish.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/GameOver.cs"

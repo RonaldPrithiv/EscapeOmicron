@@ -10,21 +10,23 @@ public class PlayerLife : MonoBehaviour
     private Animator anim;
     private Transform player;
     public GameManager gm;
-    private GameVariables gv;
+    [SerializeField] public GameVariables gv;
+    public Canvas dialogue;
+    public Vector2 startingPos;
     private string sceneName;
 
-    private int masks;
+    private int masks = 0;
     public int maskTotal = 0;
     [SerializeField] private Text maskCount;
     [SerializeField] private AudioSource maskCollectSound;
 
-    private int vaccines;
+    private int vaccines = 0;
     public int vaccineTotal = 0;
     [SerializeField] private Text vaccineCount;
     [SerializeField] private AudioSource vaccineCollectSound;
 
-    public int checkpointReached = 0;
-    private Vector2 checkpointPos = new Vector2(-39.4f, 0f);
+    public bool checkpointReached = false;
+    private Vector2 checkpointPos;
     [SerializeField] private AudioSource checkpointSound;
 
     [SerializeField] private AudioSource finishSound;
@@ -36,18 +38,24 @@ public class PlayerLife : MonoBehaviour
         anim = GetComponent<Animator>();
         player = GetComponent<Transform>();
         sceneName = SceneManager.GetActiveScene().name;
-
-        masks = PlayerPrefs.GetInt("masks", 0);
-        vaccines = PlayerPrefs.GetInt("vaccines", 0);
         
-        if(PlayerPrefs.GetInt("checkpointReached", 0) == 1)
+        gv = GameObject.FindGameObjectWithTag("GV").GetComponent<GameVariables>();
+
+        checkpointReached = gv.checkpointReached;
+
+        Debug.Log("CHECKPOINT: " + checkpointReached);
+
+        if(checkpointReached)
         {
-            checkpointPos.x = PlayerPrefs.GetFloat("checkpointPosX", -39.4f);
-            checkpointReached = 1;
-            player.transform.position = checkpointPos;
+            masks = gv.masks;
+            player.transform.position = gv.checkpointPos;
+        }
+        else
+        {   
+            player.transform.position = startingPos;
         }
 
-        //gv = GameObject.FindGameObjectWithTag("GV").GetComponent<GameVariables>();
+        dialogue.enabled = false;
         
     }
 
@@ -103,10 +111,13 @@ public class PlayerLife : MonoBehaviour
         if (collision.gameObject.CompareTag("Checkpoint"))
         {
             Debug.Log("Checkpoint Reached");
-            checkpointReached = 1;
+            checkpointReached = true;
+            gv.checkpointReached = true;
+            gv.masks = masks;
             if (player.transform.position.x > checkpointPos.x)
             {
                 checkpointPos = player.transform.position;
+                gv.checkpointPos = checkpointPos;
             }
         }
 
@@ -115,7 +126,8 @@ public class PlayerLife : MonoBehaviour
             if (vaccines == vaccineTotal)
             {
                 finishSound.Play();
-                Invoke("FinishLevel", 1f);
+                dialogue.enabled = true;
+                //Invoke("FinishLevel", 1f);
             }
             else
             {
@@ -126,7 +138,7 @@ public class PlayerLife : MonoBehaviour
 
     private void MaskCountDisplay()
     {
-        maskCount.text = "Mask: " + masks + "/" + maskTotal;
+        maskCount.text = "Mask: " + masks;
     }
 
     private void VaccineCountDisplay()
@@ -138,18 +150,16 @@ public class PlayerLife : MonoBehaviour
     {        
         deathSound.Play();
         //rb.bodyType = RigidbodyType2D.Static;
-        if(checkpointReached == 1)
+        if(checkpointReached)
         {
-            PlayerPrefs.SetInt("checkpointReached", 1);
-            PlayerPrefs.SetFloat("checkpointPosX", checkpointPos.x);
-            PlayerPrefs.SetInt("masks", masks);
-            PlayerPrefs.SetInt("vaccines", vaccines);
-            
+            gv.checkpointReached = true;
+            gv.checkpointPos = checkpointPos;
+            gv.masks = masks;   
         }
 
         PlayerPrefs.SetString("level", sceneName);
         
-        Debug.Log("Before Animation");
+        Debug.Log(PlayerPrefs.GetString("level"));
         anim.SetTrigger("death");
         Debug.Log("After Animation");
     }
@@ -160,8 +170,9 @@ public class PlayerLife : MonoBehaviour
         SceneManager.LoadScene("GameOver");
     }
 
-    private void FinishLevel()
+    public void FinishLevel()
     {
+        gv.checkpointPos = new Vector2(0,0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

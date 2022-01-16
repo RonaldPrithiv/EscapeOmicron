@@ -10,10 +10,6 @@ public class GameOver : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Debug.Log("Restarting...");
-        if(PlayerPrefs.GetInt("checkpointReached", 0) == 0)
-        {
-            PlayerPrefs.DeleteKey("masks");
-        }
         SceneManager.LoadScene("GameOver");
     }
 
