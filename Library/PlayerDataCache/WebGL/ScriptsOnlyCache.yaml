@@ -1157,7 +1157,7 @@ ScriptsOnlyBuild:
     className: HorizontalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 88f47fd80a5827cfbcfdb6fe6abe8c2b
+      Hash: 7b2fbf660e7573b728ecdf4bfa8ac822
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerLife

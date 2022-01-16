@@ -287,13 +287,6 @@ static void Finish_t05AFABC437BAC217278BEDDF07674FDDBB465F2E_CustomAttributesCac
 		SerializeField__ctor_mDE6A7673BA2C1FAD03CFEC65C6D473CC37889DD3(tmp, NULL);
 	}
 }
-static void PlayerLife_t157DE2E297FB3033672F7A4961A0F82ECEA94473_CustomAttributesCacheGenerator_gv(CustomAttributesCache* cache)
-{
-	{
-		SerializeField_t6B23EE6CC99B21C3EBD946352112832A70E67E25 * tmp = (SerializeField_t6B23EE6CC99B21C3EBD946352112832A70E67E25 *)cache->attributes[0];
-		SerializeField__ctor_mDE6A7673BA2C1FAD03CFEC65C6D473CC37889DD3(tmp, NULL);
-	}
-}
 static void PlayerLife_t157DE2E297FB3033672F7A4961A0F82ECEA94473_CustomAttributesCacheGenerator_maskCount(CustomAttributesCache* cache)
 {
 	{
@@ -379,11 +372,10 @@ static void PlayerMovement_t324642B864F0A1AE4225A972674F8FD21DCA5F09_CustomAttri
 	}
 }
 IL2CPP_EXTERN_C const CustomAttributesCacheGenerator g_AssemblyU2DCSharp_AttributeGenerators[];
-const CustomAttributesCacheGenerator g_AssemblyU2DCSharp_AttributeGenerators[16] = 
+const CustomAttributesCacheGenerator g_AssemblyU2DCSharp_AttributeGenerators[15] = 
 {
 	CameraController_tCFCE51ADE50A46097682FD3E2CEA53100D84E7E0_CustomAttributesCacheGenerator_player,
 	Finish_t05AFABC437BAC217278BEDDF07674FDDBB465F2E_CustomAttributesCacheGenerator_finishSound,
-	PlayerLife_t157DE2E297FB3033672F7A4961A0F82ECEA94473_CustomAttributesCacheGenerator_gv,
 	PlayerLife_t157DE2E297FB3033672F7A4961A0F82ECEA94473_CustomAttributesCacheGenerator_maskCount,
 	PlayerLife_t157DE2E297FB3033672F7A4961A0F82ECEA94473_CustomAttributesCacheGenerator_maskCollectSound,
 	PlayerLife_t157DE2E297FB3033672F7A4961A0F82ECEA94473_CustomAttributesCacheGenerator_vaccineCount,

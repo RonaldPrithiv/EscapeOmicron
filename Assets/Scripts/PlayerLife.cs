@@ -10,7 +10,7 @@ public class PlayerLife : MonoBehaviour
     private Animator anim;
     private Transform player;
     public GameManager gm;
-    [SerializeField] public GameVariables gv;
+    private GameVariables gv;
     public Canvas dialogue;
     public Vector2 startingPos;
     private string sceneName;
@@ -47,12 +47,12 @@ public class PlayerLife : MonoBehaviour
 
         if(checkpointReached)
         {
-            masks = gv.masks;
             player.transform.position = gv.checkpointPos;
         }
         else
         {   
             player.transform.position = startingPos;
+
         }
 
         dialogue.enabled = false;
@@ -64,8 +64,6 @@ public class PlayerLife : MonoBehaviour
     {
         if (player.transform.position.y < -10.0f)
         {
-            enabled = false;
-            
             Death();
         }
     }
@@ -113,20 +111,19 @@ public class PlayerLife : MonoBehaviour
             Debug.Log("Checkpoint Reached");
             checkpointReached = true;
             gv.checkpointReached = true;
-            gv.masks = masks;
-            if (player.transform.position.x > checkpointPos.x)
-            {
-                checkpointPos = player.transform.position;
-                gv.checkpointPos = checkpointPos;
-            }
+            
+            checkpointPos = player.transform.position;
+            gv.checkpointPos = checkpointPos;
+            
         }
 
-        if (collision.gameObject.name == "Finish")
+        if (collision.gameObject.CompareTag("Finish"))
         {
             if (vaccines == vaccineTotal)
             {
                 finishSound.Play();
                 dialogue.enabled = true;
+                Destroy(gv.gameObject);
                 //Invoke("FinishLevel", 1f);
             }
             else
@@ -154,11 +151,10 @@ public class PlayerLife : MonoBehaviour
         {
             gv.checkpointReached = true;
             gv.checkpointPos = checkpointPos;
-            gv.masks = masks;   
         }
 
         PlayerPrefs.SetString("level", sceneName);
-        
+        enabled = false;
         Debug.Log(PlayerPrefs.GetString("level"));
         anim.SetTrigger("death");
         Debug.Log("After Animation");
@@ -172,7 +168,6 @@ public class PlayerLife : MonoBehaviour
 
     public void FinishLevel()
     {
-        gv.checkpointPos = new Vector2(0,0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
