@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float playerSpeed = 10.0f;
     [SerializeField] private AudioSource jumpingSound;
 
-    private enum AnimationState { idle, running, jumping, falling }
+    private enum AnimationState { idle, running, jumping, falling, attack}
 
     // Start is called before the first frame update
     private void Start()
@@ -80,6 +80,11 @@ public class PlayerMovement : MonoBehaviour
         else if (rb.velocity.y < -.1f)
         {
             state = AnimationState.falling;
+        }
+
+        if(Input.GetButtonDown("Fire1"))
+        {
+            state = AnimationState.attack;
         }
 
         anim.SetInteger("state", (int)state);

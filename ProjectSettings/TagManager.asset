@@ -12,6 +12,8 @@ TagManager:
   - Trap
   - Virus_Back
   - trigger
+  - Vaccine
+  - GV
   layers:
   - Default
   - TransparentFX

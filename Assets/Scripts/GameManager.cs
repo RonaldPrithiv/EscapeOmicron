@@ -18,9 +18,10 @@ public class GameManager : MonoBehaviour
     {
         if (caught)
         {
-            Time.timeScale = 0;
+            Time.timeScale = 0f;
             foreach (Transform child in canvas.transform)
             {
+                Debug.Log("Set Active");
                 child.gameObject.SetActive(true);
                 
             }
@@ -33,14 +34,13 @@ public class GameManager : MonoBehaviour
 
     public void Restart()//restart level
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
         Scene scene = SceneManager.GetActiveScene(); 
         SceneManager.LoadScene(scene.name);
     }
 
     public void MainMenu()//go to mainmenu
     {
-       
         SceneManager.LoadScene(0);
     }
 }
